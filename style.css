@@ -57,7 +57,7 @@ body {
 
 .square:hover, .button:hover {
   transition: all 0.3s ease;
-  border-color: #a354b0;      
+  border-color: rgb(180, 209, 85);      
   transform: scale(1.02);
     
 }
@@ -100,4 +100,8 @@ body {
   justify-content:center ;
   align-items: center;
 
+}
+
+.selected {
+  border: 10px solid rgb(180, 209, 85);
 }

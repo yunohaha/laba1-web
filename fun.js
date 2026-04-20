@@ -15,6 +15,10 @@ function button() {
     document.getElementById('square2').onclick = function() { square(2); };
     document.getElementById('square3').onclick = function() { square(3); };
 
+    document.getElementById('square1').classList.remove('selected');
+    document.getElementById('square2').classList.remove('selected');
+    document.getElementById('square3').classList.remove('selected');
+
     var d = document.getElementById('dejgi').innerHTML;
     d = Number(d);
     d += 1;
@@ -24,7 +28,7 @@ function button() {
 
 var choise = false; 
 var isWin;
-var choise_p;
+var numUserChoise;
 var position; 
 var gamestatus; 
 var vic_pos;
@@ -33,10 +37,12 @@ var opensquare;
 function startNewGame(){ 
 
     choise = true;
-    choise_p = null;
+    numUserChoise = null;
 
     vic_pos = Math.floor(Math.random()*3) + 1; 
     gamestatus = 'choise';
+
+    document.getElementById('button').innerHTML = '<h1>Now playing...</h1>'
 
 }
 
@@ -50,40 +56,41 @@ function square(number){
     
     if (gamestatus === 'choise'){
         
-        choise_p = number;
-        document.getElementById('square' + choise_p).classList.add('selected');
+        numUserChoise = number;
+        document.getElementById('square' + numUserChoise).classList.add('selected');
 
         opensquare = openSquare();
         var goatSquare = document.getElementById('square' + opensquare);
         goatSquare.style.backgroundColor = '#eb6262';
         goatSquare.onclick = null; 
         gamestatus = 'offer';
+        document.getElementById('button').innerHTML = '<h1>Replace?</h1>'
     }
 
 
     else if (gamestatus === 'offer'){
 
-        if (number === choise_p){
+        if (number === numUserChoise){
             choise =  false;
-            position = choise_p;
+            position = numUserChoise;
         } else {
             choise = true;
             position = number;
         }
 
-    
+        if (choise){
+            document.getElementById('square' + numUserChoise).classList.remove('selected');
+            document.getElementById('square' + position).classList.add('selected');
+        }
 
         var isWin = (position === vic_pos)
 
-        var resmsg = '';
         if (isWin){
             s1 ++;
             document.getElementById('s1').innerHTML = s1;
-            resmsg += 'Victory!';
         } else {
             s2 ++;
             document.getElementById('s2').innerHTML = s2;
-            resmsg += 'Defeat =(';
         }
         endGame()
     }
@@ -94,7 +101,7 @@ function openSquare(){
     var possibleGoats = [];
 
     for (var i = 1; i <=3; i++){
-        if (i !== choise_p && i !== vic_pos) possibleGoats.push(i);
+        if (i !== numUserChoise && i !== vic_pos) possibleGoats.push(i);
     }
 
     if (possibleGoats.length === 1) return possibleGoats[0];
@@ -118,4 +125,5 @@ function endGame(){
     square1.onclick = null;
     square2.onclick = null;
     square3.onclick = null;
+    document.getElementById('button').innerHTML = '<h1>Сlick to start!</h1>'
 }
