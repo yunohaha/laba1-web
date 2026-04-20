@@ -22,14 +22,18 @@ body {
   justify-content: center;
 }
 
-.buttom {
-    width: 300px;
-    height: 100px;
-    background-color: #bcb1be;
-    border-radius: 10%;
+.button {
+    width: 270px;
+    height: 70px;
+    background-color: #c974e0;
+    border: 4px solid #f0eaf1;     
+    border-radius: 25px; 
+    align-items: center;      
     display: flex;
     cursor: pointer;
+    justify-content: center;
 }
+
 
 .board {
     width: 100%;
@@ -46,16 +50,23 @@ body {
     height: 300px;
     background-color: #c974e0;
     border-radius: 20%;
-
+    border: 4px solid #f0eaf1;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+}
+
+.square:hover, .button:hover {
+  transition: all 0.3s ease;
+  border-color: #a354b0;      
+  transform: scale(1.02);
+    
 }
 
 .victory {
-    color: #c3ebe2;
+    color: #82e3c4;
 }
 .defeat{
-    color: #f0aebe;
+    color: #be697e;
 }
 .stan {
   width: 100%;

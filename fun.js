@@ -77,11 +77,11 @@ function square(number){
 
         var resmsg = '';
         if (isWin){
-            s1 +=1;
+            s1 ++;
             document.getElementById('s1').innerHTML = s1;
             resmsg += 'Victory!';
         } else {
-            s2 +=1;
+            s2 ++;
             document.getElementById('s2').innerHTML = s2;
             resmsg += 'Defeat =(';
         }
