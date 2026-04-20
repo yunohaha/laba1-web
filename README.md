@@ -2,6 +2,6 @@
 ### Lab assignment on "Website Development" -- Monty Hall's Paradox.
 
 Stack:
--сss
--js
--html
+- сss
+- js
+- html
