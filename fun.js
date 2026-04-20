@@ -11,6 +11,10 @@ function button() {
     document.getElementById('square2').style.cursor = 'pointer';
     document.getElementById('square3').style.cursor = 'pointer';
 
+    document.getElementById('square1').onclick = function() { square(1); };
+    document.getElementById('square2').onclick = function() { square(2); };
+    document.getElementById('square3').onclick = function() { square(3); };
+
     var d = document.getElementById('dejgi').innerHTML;
     d = Number(d);
     d += 1;
@@ -52,7 +56,7 @@ function square(number){
         opensquare = openSquare();
         var goatSquare = document.getElementById('square' + opensquare);
         goatSquare.style.backgroundColor = '#eb6262';
-        goatSquare.style.cursor = 'default';
+        goatSquare.onclick = null; 
         gamestatus = 'offer';
     }
 
@@ -111,4 +115,7 @@ function endGame(){
             sq.style.backgroundColor = '#eb6262';
         }
     }
+    square1.onclick = null;
+    square2.onclick = null;
+    square3.onclick = null;
 }
